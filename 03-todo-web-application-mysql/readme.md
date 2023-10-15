@@ -17,8 +17,8 @@ We will deploy to Cloud as a WAR
 - http://localhost:8080/login with in28minutes/dummy as credentials
 - You can add, delete and update your todos
 - Spring Security is used to secure the application
-- `com.in28minutes.springboot.web.security.SecurityConfiguration` contains the in memory security credential configuration.
-
+- `com.in28minutes.springboot.web.security.SecurityConfiguration` contains the in memory security credential
+  configuration.
 
 ## Changes from H2 Application
 
@@ -67,6 +67,7 @@ spring.datasource.password=sa
 @Column(name="description")
 private String desc;
 ```
+
 ## My SQL
 
 ### Launching MySQL using Docker
@@ -80,7 +81,6 @@ docker run --detach --env MYSQL_ROOT_PASSWORD=dummypassword --env MYSQL_USER=tod
 - https://dev.mysql.com/downloads/shell/
 
 - Install on mac using `brew install caskroom/cask/mysql-shell`.
-
 
 ```
 Rangas-MacBook-Air:projects rangakaranam$ mysqlsh

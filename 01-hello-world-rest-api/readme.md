@@ -27,52 +27,56 @@ Hello World
 ```
 <plugin>
 	<groupId>com.microsoft.azure</groupId>
-	<artifactId>azure-webapp-maven-plugin</artifactId>
-	<version>1.7.0</version>
+    <artifactId>azure-webapp-maven-plugin</artifactId>
+    <version>2.12.0</version>
 </plugin>
 ```
-				
+
 ### Azure CLI
 
 - https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
 
 ### Final Plugin Configuration
+
 ```
 <plugin>
-	<groupId>com.microsoft.azure</groupId>
-	<artifactId>azure-webapp-maven-plugin</artifactId>
-	<version>1.7.0</version>
-	<configuration>
-		<schemaVersion>V2</schemaVersion>
-		<resourceGroup>hello-world-rest-api-rg</resourceGroup>
-		<appName>hello-world-rest-api-in28minutes</appName>
-		<pricingTier>B1</pricingTier>
-		<region>westeurope</region>
-		<appSettings>
-			<property>
-				<name>JAVA_OPTS</name>
-				<value>-Dserver.port=80</value>
-			</property>
-		</appSettings>
-		<runtime>
-			<os>linux</os>
-			<javaVersion>java11</javaVersion>
-			<webContainer>java11</webContainer>
-		</runtime>
-		<deployment>
-			<resources>
-				<resource>
-					<directory>${project.basedir}/target</directory>
-					<includes>
-						<include>*.jar</include>
-					</includes>
-				</resource>
-			</resources>
-		</deployment>
-	</configuration>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-webapp-maven-plugin</artifactId>
+    <version>2.12.0</version>
+    <configuration>
+        <schemaVersion>v2</schemaVersion>
+        <resourceGroup>hello-world-rest-api-rg</resourceGroup>
+        <appName>hello-world-rest-api-sankhaonline</appName>
+        <pricingTier>F1</pricingTier>
+        <region>westeurope</region>
+        <appSettings>
+            <property>
+                <name>JAVA_OPTS</name>
+                <value>-Dserver.port=80</value>
+            </property>
+        </appSettings>
+        <runtime>
+            <os>Linux</os>
+            <javaVersion>Java 17</javaVersion>
+            <webContainer>Java SE</webContainer>
+        </runtime>
+        <deployment>
+            <resources>
+                <resource>
+                    <directory>${project.basedir}/target</directory>
+                    <includes>
+                        <include>*.jar</include>
+                    </includes>
+                </resource>
+            </resources>
+        </deployment>
+    </configuration>
 </plugin>
 
 ```
+
+az webapp log tail --name hello-world-rest-api-sankhaonline --resource-group hello-world-rest-api-rg
+
 ### Logging Configuration
 
 ```

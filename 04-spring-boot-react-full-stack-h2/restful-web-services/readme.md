@@ -3,14 +3,18 @@
 ![Architecture](react_00_architecture.png)
 
 To understand the application
+
 - https://www.springboottutorial.com/spring-boot-react-full-stack-crud-maven-application
 
 To understand JWT and Spring Security Configuration
+
 - https://www.springboottutorial.com/spring-boot-react-full-stack-with-spring-security-basic-and-jwt-authentication
 
 ## Running the Application
 
-- REST API - Import `restful-web-services` into Eclipse as Maven Project. Run `com.in28minutes.rest.webservices.restfulwebservices.RestfulWebServicesApplication` as a Java Application. Check Authentication and REST API Sections for executing REST APIs.
+- REST API - Import `restful-web-services` into Eclipse as Maven Project.
+  Run `com.in28minutes.rest.webservices.restfulwebservices.RestfulWebServicesApplication` as a Java Application. Check
+  Authentication and REST API Sections for executing REST APIs.
 - React Application - Import `frontend/todo-app` into Visual Studio Code. Run `npm install` followed by `npm start`
 - http://localhost:4200/ with credentials in28minutes/dummy
 
@@ -32,7 +36,7 @@ export const API_URL = 'http://restfulwebservices-env.uhpev7xzpb.us-east-1.elast
 
 ## Authentication
 
-All REST API are protected by JWT Authentication with Spring Security. 
+All REST API are protected by JWT Authentication with Spring Security.
 
 POST to http://localhost:5000/authenticate
 
@@ -44,6 +48,7 @@ POST to http://localhost:5000/authenticate
 ```
 
 Response
+
 ```
 {
 "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbjI4bWludXRlcyIsImV4cCI6MTU2MjIzNDM1OSwiaWF0IjoxNTYxNjI5NTU5fQ.yvkFtYAp8yGClDo7D5wtXyPSnUPtxu8A7A9YCl9FJdjR0di_yAaPcSTR6liN5bIu1SnOJuSZp94pYSYzU_BNEw"
@@ -54,22 +59,20 @@ Use the token in the headers for all subsequent requests.
 
 `Authorization` : `Bearer ${token}`
 
-Example 
+Example
 
 `Authorization` : `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbjI4bWludXRlcyIsImV4cCI6MTU2MjIzNDM1OSwiaWF0IjoxNTYxNjI5NTU5fQ.yvkFtYAp8yGClDo7D5wtXyPSnUPtxu8A7A9YCl9FJdjR0di_yAaPcSTR6liN5bIu1SnOJuSZp94pYSYzU_BNEw`
-
 
 ## Creating New Users
 
 Look at /src/main/resources/data.sql for existing users.
 
-You can create new users by encrypting password with Bcrypt - Use Rounds 10 - https://www.browserling.com/tools/bcrypt 
+You can create new users by encrypting password with Bcrypt - Use Rounds 10 - https://www.browserling.com/tools/bcrypt
 
 ```
 INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) 
 VALUES (3, 'USERNAME', 'BCRYPT_ENCRyPTED_PASSWORD','ROLE_USER');
 ```
-
 
 ## Hello World URLS
 
@@ -180,14 +183,13 @@ Hibernate: create table user (id bigint not null, password varchar(100) not null
 Hibernate: alter table user add constraint UK_sb8bbouer5wak8vyiiy4pf2bx unique (username)
 ```
 
-
 ## H2 Console
 
 - http://localhost:5000/h2-console
-- Use `jdbc:h2:mem:testdb` as JDBC URL 
-
+- Use `jdbc:h2:mem:testdb` as JDBC URL
 
 ## Final Plugin Configuration
+
 ```
 			<plugin>
 				<groupId>com.microsoft.azure</groupId>

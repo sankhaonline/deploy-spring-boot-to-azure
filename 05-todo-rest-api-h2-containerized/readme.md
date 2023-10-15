@@ -2,18 +2,19 @@
 
 Run com.in28minutes.rest.webservices.restfulwebservices.RestfulWebServicesApplication as a Java Application.
 
-
 ## Containerization
 
 ### Troubleshooting
 
-- Problem - Caused by: com.spotify.docker.client.shaded.javax.ws.rs.ProcessingException: java.io.IOException: No such file or directory
+- Problem - Caused by: com.spotify.docker.client.shaded.javax.ws.rs.ProcessingException: java.io.IOException: No such
+  file or directory
 - Solution - Check if docker is up and running!
-- Problem - Error creating the Docker image on MacOS - java.io.IOException: Cannot run program “docker-credential-osxkeychain”: error=2, No such file or directory
-- Solution - https://medium.com/@dakshika/error-creating-the-docker-image-on-macos-wso2-enterprise-integrator-tooling-dfb5b537b44e
+- Problem - Error creating the Docker image on MacOS - java.io.IOException: Cannot run program
+  “docker-credential-osxkeychain”: error=2, No such file or directory
+-
+Solution - https://medium.com/@dakshika/error-creating-the-docker-image-on-macos-wso2-enterprise-integrator-tooling-dfb5b537b44e
 
 ### Creating Containers
-
 
 - mvn package
 - docker run in28min/todo-rest-api-h2:0.0.1-SNAPSHOT
@@ -25,7 +26,6 @@ To test execute API at http://localhost:5000/users/in28minutes/todos.
 ```
 docker login
 ```
-
 
 ## Hello World URLS
 
@@ -46,7 +46,6 @@ Hello World
 ```json
 {"message":"Hello World, in28minutes"}
 ```
-
 
 ## Todo JPA Resource URLs
 
@@ -123,11 +122,10 @@ Hello World
 
 - DELETE to http://localhost:5000/jpa/users/in28minutes/todos/10001
 
-
 ## H2 Console
 
 - http://localhost:5000/h2-console
-- Use `jdbc:h2:mem:testdb` as JDBC URL 
+- Use `jdbc:h2:mem:testdb` as JDBC URL
 
 ## Azure Resource Commands
 
@@ -136,7 +134,6 @@ az group create --name container-resource-group --location westeurope
 az appservice plan create --name container-service-plan --resource-group container-resource-group --sku P1v2 --is-linux
 az webapp create --resource-group container-resource-group --plan container-service-plan --name todo-rest-api-h2-container --deployment-container-image-name in28min/todo-rest-api-h2:1.0.0.RELEASE
 ```
-
 
 ## Continuous Deployment
 

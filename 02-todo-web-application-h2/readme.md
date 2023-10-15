@@ -2,7 +2,7 @@
 
 Run com.in28minutes.springboot.web.SpringBootFirstWebApplication as a Java Application.
 
-Runs on default port of Spring Boot - 8080 
+Runs on default port of Spring Boot - 8080
 
 ## Can be run as a Jar or a WAR
 
@@ -13,25 +13,27 @@ Runs on default port of Spring Boot - 8080
 - http://localhost:8080/login with in28minutes/dummy as credentials
 - You can add, delete and update your todos
 - Spring Security is used to secure the application
-- `com.in28minutes.springboot.web.security.SecurityConfiguration` contains the in memory security credential configuration.
+- `com.in28minutes.springboot.web.security.SecurityConfiguration` contains the in memory security credential
+  configuration.
 
 ## H2 Console
 
 - http://localhost:8080/h2-console
-- Use `jdbc:h2:mem:testdb` as JDBC URL 
-
+- Use `jdbc:h2:mem:testdb` as JDBC URL
 
 ## Plugin Initial Configuration
+
 ```
 <plugin>
 	<groupId>com.microsoft.azure</groupId>
 	<artifactId>azure-webapp-maven-plugin</artifactId>
-	<version>1.7.0</version>
+	<version>1.14.0</version>
 </plugin>
 
 ```
 
 ## Plugin Final Configuration
+
 ```
 			<plugin>
 				<groupId>com.microsoft.azure</groupId>

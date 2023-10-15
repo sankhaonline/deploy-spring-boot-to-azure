@@ -31,12 +31,13 @@ Hello World
 	<version>1.7.0</version>
 </plugin>
 ```
-				
+
 ### Azure CLI
 
 - https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
 
 ### Final Plugin Configuration
+
 ```
 <plugin>
 	<groupId>com.microsoft.azure</groupId>
@@ -73,6 +74,7 @@ Hello World
 </plugin>
 
 ```
+
 ### Logging Configuration
 
 ```
@@ -80,11 +82,13 @@ Hello World
 ```
 
 ### Installing curl and watch on windows
+
 ```
 https://curl.haxx.se/windows/
 ```
 
 ### Installing watch on MAC
+
 ```
 http://osxdaily.com/2010/08/22/install-watch-command-on-os-x/
 ```

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import TodoDataService from '../../api/todo/TodoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import moment from 'moment'
@@ -40,7 +40,7 @@ class ListTodosComponent extends Component {
             .then(
                 response => {
                     //console.log(response);
-                    this.setState({ todos: response.data })
+                    this.setState({todos: response.data})
                 }
             )
     }
@@ -51,7 +51,7 @@ class ListTodosComponent extends Component {
         TodoDataService.deleteTodo(username, id)
             .then(
                 response => {
-                    this.setState({ message: `Delete of todo ${id} Successful` })
+                    this.setState({message: `Delete of todo ${id} Successful`})
                     this.refreshTodos()
                 }
             )
@@ -87,27 +87,35 @@ class ListTodosComponent extends Component {
                 <div className="container">
                     <table className="table">
                         <thead>
-                            <tr>
-                                <th>Description</th>
-                                <th>Target Date</th>
-                                <th>IsCompleted?</th>
-                                <th>Update</th>
-                                <th>Delete</th>
-                            </tr>
+                        <tr>
+                            <th>Description</th>
+                            <th>Target Date</th>
+                            <th>IsCompleted?</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            {
-                                this.state.todos.map(
-                                    todo =>
-                                        <tr key={todo.id}>
-                                            <td>{todo.description}</td>
-                                            <td>{moment(todo.targetDate).format('YYYY-MM-DD')}</td>
-                                            <td>{todo.done.toString()}</td>
-                                            <td><button className="btn btn-success" onClick={() => this.updateTodoClicked(todo.id)}>Update</button></td>
-                                            <td><button className="btn btn-warning" onClick={() => this.deleteTodoClicked(todo.id)}>Delete</button></td>
-                                        </tr>
-                                )
-                            }
+                        {
+                            this.state.todos.map(
+                                todo =>
+                                    <tr key={todo.id}>
+                                        <td>{todo.description}</td>
+                                        <td>{moment(todo.targetDate).format('YYYY-MM-DD')}</td>
+                                        <td>{todo.done.toString()}</td>
+                                        <td>
+                                            <button className="btn btn-success"
+                                                    onClick={() => this.updateTodoClicked(todo.id)}>Update
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button className="btn btn-warning"
+                                                    onClick={() => this.deleteTodoClicked(todo.id)}>Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                            )
+                        }
                         </tbody>
                     </table>
                     <div className="row">

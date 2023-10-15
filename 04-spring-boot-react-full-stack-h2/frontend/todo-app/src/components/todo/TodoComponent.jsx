@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import moment from 'moment'
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import {ErrorMessage, Field, Form, Formik} from 'formik';
 import TodoDataService from '../../api/todo/TodoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 
@@ -72,7 +72,7 @@ class TodoComponent extends Component {
 
     render() {
 
-        let { description, targetDate } = this.state
+        let {description, targetDate} = this.state
         //let targetDate = this.state.targetDate
 
         return (
@@ -80,7 +80,7 @@ class TodoComponent extends Component {
                 <h1>Todo</h1>
                 <div className="container">
                     <Formik
-                        initialValues={{ description, targetDate }}
+                        initialValues={{description, targetDate}}
                         onSubmit={this.onSubmit}
                         validateOnChange={false}
                         validateOnBlur={false}
@@ -91,16 +91,16 @@ class TodoComponent extends Component {
                             (props) => (
                                 <Form>
                                     <ErrorMessage name="description" component="div"
-                                        className="alert alert-warning" />
+                                                  className="alert alert-warning"/>
                                     <ErrorMessage name="targetDate" component="div"
-                                        className="alert alert-warning" />
+                                                  className="alert alert-warning"/>
                                     <fieldset className="form-group">
                                         <label>Description</label>
-                                        <Field className="form-control" type="text" name="description" />
+                                        <Field className="form-control" type="text" name="description"/>
                                     </fieldset>
                                     <fieldset className="form-group">
                                         <label>Target Date</label>
-                                        <Field className="form-control" type="date" name="targetDate" />
+                                        <Field className="form-control" type="date" name="targetDate"/>
                                     </fieldset>
                                     <button className="btn btn-success" type="submit">Save</button>
                                 </Form>

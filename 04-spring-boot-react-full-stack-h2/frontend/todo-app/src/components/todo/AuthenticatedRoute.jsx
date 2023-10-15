@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import React, {Component} from 'react'
+import {Redirect, Route} from 'react-router-dom'
 import AuthenticationService from './AuthenticationService.js'
 
 class AuthenticatedRoute extends Component {
@@ -7,7 +7,7 @@ class AuthenticatedRoute extends Component {
         if (AuthenticationService.isUserLoggedIn()) {
             return <Route {...this.props} />
         } else {
-            return <Redirect to="/login" />
+            return <Redirect to="/login"/>
         }
 
     }

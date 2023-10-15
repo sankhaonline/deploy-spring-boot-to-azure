@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import HelloWorldService from '../../api/todo/HelloWorldService.js'
 
 class WelcomeComponent extends Component {
@@ -25,7 +25,7 @@ class WelcomeComponent extends Component {
                 <div className="container">
                     Click here to get a customized welcome message.
                     <button onClick={this.retrieveWelcomeMessage}
-                        className="btn btn-success">Get Welcome Message</button>
+                            className="btn btn-success">Get Welcome Message</button>
                 </div>
                 <div className="container">
                     {this.state.welcomeMessage}
@@ -49,7 +49,7 @@ class WelcomeComponent extends Component {
 
     handleSuccessfulResponse(response) {
         console.log(response)
-        this.setState({ welcomeMessage: response.data.message })
+        this.setState({welcomeMessage: response.data.message})
     }
 
     handleError(error) {
@@ -65,7 +65,7 @@ class WelcomeComponent extends Component {
             errorMessage += error.response.data.message
         }
 
-        this.setState({ welcomeMessage: errorMessage })
+        this.setState({welcomeMessage: errorMessage})
     }
 
 }

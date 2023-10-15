@@ -6,7 +6,7 @@ services:
       - "5000:5000"
     restart: always
     depends_on:
-      - mysql 
+      - mysql
     environment:
       RDS_HOSTNAME: mysql
       RDS_PORT: 3306
@@ -20,7 +20,7 @@ services:
       - "3306:3306"
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: dummypassword 
+      MYSQL_ROOT_PASSWORD: dummypassword
       MYSQL_USER: todos-user
       MYSQL_PASSWORD: dummytodos
       MYSQL_DATABASE: todos

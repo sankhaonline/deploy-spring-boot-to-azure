@@ -5,21 +5,23 @@
 - Runs on port 5000
 - Run com.in28minutes.rest.webservices.restfulwebservices.RestfulWebServicesApplication as a Java Application.
 
-
 ## Containerization
 
 ### Troubleshooting
 
-- Problem - Caused by: com.spotify.docker.client.shaded.javax.ws.rs.ProcessingException: java.io.IOException: No such file or directory
+- Problem - Caused by: com.spotify.docker.client.shaded.javax.ws.rs.ProcessingException: java.io.IOException: No such
+  file or directory
 - Solution - Check if docker is up and running!
-- Problem - Error creating the Docker image on MacOS - java.io.IOException: Cannot run program “docker-credential-osxkeychain”: error=2, No such file or directory
-- Solution - https://medium.com/@dakshika/error-creating-the-docker-image-on-macos-wso2-enterprise-integrator-tooling-dfb5b537b44e
+- Problem - Error creating the Docker image on MacOS - java.io.IOException: Cannot run program
+  “docker-credential-osxkeychain”: error=2, No such file or directory
+-
+Solution - https://medium.com/@dakshika/error-creating-the-docker-image-on-macos-wso2-enterprise-integrator-tooling-dfb5b537b44e
 
 ### Creating Containers and Running Locally
 
 https://hub.docker.com/r/in28min/todo-rest-api-mysql
 
-### Run MySQL  
+### Run MySQL
 
 ```
 docker run --detach --env MYSQL_ROOT_PASSWORD=dummypassword --env MYSQL_USER=todos-user --env MYSQL_PASSWORD=dummytodos --env MYSQL_DATABASE=todos --name mysql --publish 3306:3306 mysql:5.7
@@ -36,7 +38,6 @@ docker run --name todos-api --publish 5000:5000 --link mysql:mysql in28min/todo-
 
 Run http://localhost:5000/users/in28minutes/todos
 
-
 ### Push Your REST API Container to Docker Repo
 
 ```
@@ -44,7 +45,6 @@ docker login
 
 docker push in28min/todo-rest-api-mysql:0.0.1-SNAPSHOT
 ```
-
 
 ## Hello World URLS
 
@@ -65,8 +65,6 @@ Hello World
 ```json
 {"message":"Hello World, in28minutes"}
 ```
-
-
 
 ## Todo JPA Resource URLs
 
@@ -143,11 +141,10 @@ Hello World
 
 - DELETE to http://localhost:5000/jpa/users/in28minutes/todos/10001
 
-
 ## H2 Console
 
 - http://localhost:5000/h2-console
-- Use `jdbc:h2:mem:testdb` as JDBC URL 
+- Use `jdbc:h2:mem:testdb` as JDBC URL
 
 ## Azure Resource Commands
 

@@ -2,9 +2,7 @@ package com.in28minutes.springboot.web;
 
 import java.util.Arrays;
 import java.util.stream.StreamSupport;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.env.AbstractEnvironment;
@@ -14,21 +12,22 @@ import org.springframework.core.env.MutablePropertySources;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class EnvironmentConfigurationLogger {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(EnvironmentConfigurationLogger.class);
-
-	@SuppressWarnings("rawtypes")
-	@EventListener
-	public void handleContextRefresh(ContextRefreshedEvent event) {
-		final Environment environment = event.getApplicationContext().getEnvironment();
-		LOGGER.debug("====== Environment and configuration ======");
-		LOGGER.debug("Active profiles: {}", Arrays.toString(environment.getActiveProfiles()));
-		final MutablePropertySources sources = ((AbstractEnvironment) environment).getPropertySources();
-		StreamSupport.stream(sources.spliterator(), false).filter(ps -> ps instanceof EnumerablePropertySource)
-				.map(ps -> ((EnumerablePropertySource) ps).getPropertyNames()).flatMap(Arrays::stream).distinct()
-				.forEach(prop -> LOGGER.debug("{}", prop));// environment.getProperty(prop)
-		LOGGER.debug("===========================================");
-	}
-
+  @SuppressWarnings("rawtypes")
+  @EventListener
+  public void handleContextRefresh(ContextRefreshedEvent event) {
+    final var environment = event.getApplicationContext().getEnvironment();
+    log.debug("====== Environment and configuration ======");
+    log.debug("Active profiles: {}", Arrays.toString(environment.getActiveProfiles()));
+    final var sources = ((AbstractEnvironment) environment).getPropertySources();
+    StreamSupport.stream(sources.spliterator(), false)
+        .filter(ps -> ps instanceof EnumerablePropertySource)
+        .map(ps -> ((EnumerablePropertySource) ps).getPropertyNames())
+        .flatMap(Arrays::stream)
+        .distinct()
+        .forEach(prop -> log.debug("{}", prop)); // environment.getProperty(prop)
+    log.debug("===========================================");
+  }
 }

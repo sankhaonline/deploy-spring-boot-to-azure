@@ -11,6 +11,10 @@ public class JwtUserDetailsService implements UserDetailsService {
 	@Autowired
 	private UserRepository userRepository;
 
+	public static JwtUserDetails create(User user) {
+		return new JwtUserDetails(user.getId(), user.getUsername(), user.getPassword(), user.getRole());
+	}
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findByUsername(username);
@@ -20,9 +24,5 @@ public class JwtUserDetailsService implements UserDetailsService {
 		} else {
 			return create(user);
 		}
-	}
-
-	public static JwtUserDetails create(User user) {
-		return new JwtUserDetails(user.getId(), user.getUsername(), user.getPassword(), user.getRole());
 	}
 }
