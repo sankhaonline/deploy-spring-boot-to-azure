@@ -27,7 +27,7 @@ Runs on default port of Spring Boot - 8080
 <plugin>
 	<groupId>com.microsoft.azure</groupId>
 	<artifactId>azure-webapp-maven-plugin</artifactId>
-	<version>1.14.0</version>
+	<version>2.12.0</version>
 </plugin>
 
 ```

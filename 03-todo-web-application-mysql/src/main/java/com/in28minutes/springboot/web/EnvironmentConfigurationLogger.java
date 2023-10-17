@@ -2,29 +2,24 @@ package com.in28minutes.springboot.web;
 
 import java.util.Arrays;
 import java.util.stream.StreamSupport;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.env.AbstractEnvironment;
 import org.springframework.core.env.EnumerablePropertySource;
-import org.springframework.core.env.Environment;
-import org.springframework.core.env.MutablePropertySources;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class EnvironmentConfigurationLogger {
-
-  private static final Logger LOGGER =
-      LoggerFactory.getLogger(EnvironmentConfigurationLogger.class);
 
   @SuppressWarnings("rawtypes")
   @EventListener
   public void handleContextRefresh(ContextRefreshedEvent event) {
-    final Environment environment = event.getApplicationContext().getEnvironment();
-    LOGGER.info("====== Environment and configuration ======");
-    LOGGER.info("Active profiles: {}", Arrays.toString(environment.getActiveProfiles()));
-    final MutablePropertySources sources = ((AbstractEnvironment) environment).getPropertySources();
+    final var environment = event.getApplicationContext().getEnvironment();
+    log.info("====== Environment and configuration ======");
+    log.info("Active profiles: {}", Arrays.toString(environment.getActiveProfiles()));
+    final var sources = ((AbstractEnvironment) environment).getPropertySources();
     StreamSupport.stream(sources.spliterator(), false)
         .filter(ps -> ps instanceof EnumerablePropertySource)
         .map(ps -> ((EnumerablePropertySource) ps).getPropertyNames())
@@ -32,12 +27,12 @@ public class EnvironmentConfigurationLogger {
         .distinct()
         .forEach(
             prop -> {
-              LOGGER.info("{}", prop);
+              log.info("{}", prop);
               //					Object resolved = environment.getProperty(prop, Object.class);
               //					if (resolved instanceof String) {
               //						LOGGER.info("{}", environment.getProperty(prop));
               //					}
             });
-    LOGGER.info("===========================================");
+    log.info("===========================================");
   }
 }

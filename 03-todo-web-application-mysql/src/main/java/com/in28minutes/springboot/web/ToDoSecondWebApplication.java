@@ -4,18 +4,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.in28minutes.springboot.web")
-public class SpringBootFirstWebApplication extends SpringBootServletInitializer {
+public class ToDoSecondWebApplication extends SpringBootServletInitializer {
 
   public static void main(String[] args) {
-    SpringApplication.run(SpringBootFirstWebApplication.class, args);
+    SpringApplication.run(ToDoSecondWebApplication.class, args);
   }
 
   @Override
   protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-    return application.sources(SpringBootFirstWebApplication.class);
+    return application.sources(ToDoSecondWebApplication.class);
   }
 }

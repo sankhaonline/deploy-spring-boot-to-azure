@@ -1,8 +1,7 @@
 package com.in28minutes.springboot.web.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import org.springframework.security.core.Authentication;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
@@ -15,7 +14,7 @@ public class LogoutController {
   @RequestMapping(value = "/logout", method = RequestMethod.GET)
   public String logout(HttpServletRequest request, HttpServletResponse response) {
 
-    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    var authentication = SecurityContextHolder.getContext().getAuthentication();
 
     if (authentication != null) {
       new SecurityContextLogoutHandler().logout(request, response, authentication);

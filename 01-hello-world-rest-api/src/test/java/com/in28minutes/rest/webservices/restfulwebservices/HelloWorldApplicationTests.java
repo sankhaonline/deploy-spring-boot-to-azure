@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.web;
+package com.in28minutes.rest.webservices.restfulwebservices;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class SpringBootFirstWebApplicationTests {
+public class HelloWorldApplicationTests {
 
   @Test
   public void contextLoads() {}

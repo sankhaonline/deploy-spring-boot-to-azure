@@ -6,7 +6,7 @@
 
 <head>
     <title>First Web Application</title>
-    <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+    <link href="webjars/bootstrap/5.3.2/css/bootstrap.min.css"
           rel="stylesheet">
 
 </head>
